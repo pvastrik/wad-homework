@@ -1,7 +1,6 @@
 <template>
     <footer>
         <p>© 2022 Anette Habanen, Urmi Tari, Priidik Västrik</p>
-
     </footer>
 
 </template>

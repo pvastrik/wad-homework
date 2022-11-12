@@ -21,7 +21,33 @@
 
 
 <script>
-    export default {}
+    export default {
+      methods:{
+        validations: {
+          password:{
+            contains2UpperCase: function (value) {
+              return /[A-Z]/.test(value)
+            },
+            containsLoweCase: function (value) {
+              return /[a-z]/.test(value)
+            },
+            containsNumber: function (value) {
+              return /[0-9]/.test(value)
+            },
+            containsSpecial: function (value) {
+              return /[_]/.test(value)
+            },
+            containsStartsWithUpper: function (value) {
+              return /[A-Z]/.test(value)
+            },
+            lenght: function (value) {
+              return /[A-Z]/.test(value)
+            }
+          }
+        }
+      }
+
+    }
 </script>
 
 
