@@ -1,6 +1,6 @@
 <template>
     <footer>
-        <p>© 1996 Anette Habanen, Urmi Tari, Priidik Västrik</p>
+        <p>© 2022 Anette Habanen, Urmi Tari, Priidik Västrik</p>
     </footer>
 
 </template>
