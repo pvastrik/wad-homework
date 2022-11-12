@@ -43,6 +43,7 @@
             length: function (value) {
               return value.length > 7 && value.length < 16
             }
+
           }
         }
       }
