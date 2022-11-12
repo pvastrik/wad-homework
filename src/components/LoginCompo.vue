@@ -2,13 +2,13 @@
     <div class="container">
         <div class = "item">
             <h2 class = "textformating2">Welcome to PostIt!</h2>
+            <h2 class="textformating2">Please login or signup</h2>
             <br>
-            <h2 class = "textformating1">Create an account</h2>
-            <h2 class="textformating2">or</h2>
-            <h2 class="textformating2">Please login</h2>
             <form action="index.html">
+                <h2 class="textformating2">Email</h2>
                 <input id=email type="email" placeholder="Email" required>
                 <br>
+                <h2 class="textformating2">Password</h2>
                 <input id=password type="password" placeholder="Password" required>
                 <br>
                 <input id="buttonInput" type="submit" value="Log in"/>
@@ -21,6 +21,13 @@
 
 
 <script>
+    export default {
+    name: "LoginCompo",
+
+    methods: {
+
+    }
+}
 
 </script>
 

@@ -31,8 +31,8 @@ export default {
 
   methods: {
     menutoggle: function () {
-    document.querySelector('.menu').classList.toggle('active');
-}
+      document.querySelector('.menu').classList.toggle('active');
+    }
   }
 }
 </script>
