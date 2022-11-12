@@ -1,14 +1,19 @@
 
 <template>
   <header-compo></header-compo>
+  <footer-compo></footer-compo>
+  <post-compo></post-compo>
 </template>
 <script>
 import HeaderCompo from "@/components/HeaderCompo";
+import PostCompo from "@/components/PostCompo";
+import FooterCompo from "@/components/FooterCompo";
 export default {
   name: 'App',
   components: {
-    HeaderCompo
-
+    HeaderCompo,
+    PostCompo,
+    FooterCompo
   }
 }
 </script>
