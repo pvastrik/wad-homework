@@ -26,7 +26,7 @@
         validations: {
           password:{
             contains2UpperCase: function (value) {
-              return /[A-Z]/.test(value)
+              return /[A-Z].*[A-Z]/.test(value)
             },
             containsLoweCase: function (value) {
               return /[a-z]/.test(value)
@@ -37,11 +37,11 @@
             containsSpecial: function (value) {
               return /[_]/.test(value)
             },
-            containsStartsWithUpper: function (value) {
-              return /[A-Z]/.test(value)
+            startsWithUpper: function (value) {
+              return /[A-Z]/.test(value.substring(0, 1))
             },
-            lenght: function (value) {
-              return /[A-Z]/.test(value)
+            length: function (value) {
+              return value.length > 7 && value.length < 16
             }
           }
         }
