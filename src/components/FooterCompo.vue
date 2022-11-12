@@ -1,16 +1,6 @@
 <template>
     <footer>
-        <ul>
-            <li>
-                <h2>Anette Habanen</h2>
-            </li>
-            <li>
-                <h2>Urmi Tari</h2>
-            </li>
-            <li>
-                <h2>Priidik Västrik</h2>
-            </li>
-        </ul>
+        <p>© 1996 Anette Habanen, Urmi Tari, Priidik Västrik</p>
     </footer>
 
 </template>
