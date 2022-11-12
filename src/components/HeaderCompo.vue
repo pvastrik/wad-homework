@@ -3,7 +3,7 @@
     <div class="containerNavbar">
       <ul>
         <li>
-          <h1><a href="#">Home</a></h1>
+          <h1><router-link to="/home">Home</router-link></h1>
         </li>
       </ul>
     </div>
@@ -27,7 +27,6 @@
 </template>
 <script>
 export default {
-  name: "HeaderCompo",
 
   methods: {
     menutoggle: function () {
