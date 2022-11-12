@@ -22,7 +22,7 @@
 
 
 <style>
-    footer {
+footer {
     background-color: #1ccad8;
     padding: 20px 10px;
     text-align: center;
