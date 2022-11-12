@@ -7,7 +7,7 @@
         </li>
       </ul>
     </div>
-    <a onclick="menuToggle()"><img id="logo" src="@/assets/profile.png" alt="Profile picture"></a>
+    <a v-on:click="menutoggle()"><img id="logo" src="@/assets/profile.png" alt="Profile picture"></a>
     <div class="menu">
       <h3>User Name<br/>
         <span>user@email.com</span></h3>
@@ -25,7 +25,17 @@
     </div>
   </nav>
 </template>
+<script>
+export default {
+  name: "HeaderCompo",
 
+  methods: {
+    menutoggle: function () {
+    document.querySelector('.menu').classList.toggle('active');
+}
+  }
+}
+</script>
 <style>
 
 nav {
