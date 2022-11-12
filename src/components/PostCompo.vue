@@ -18,33 +18,31 @@
 
 <script>
 
-.post {
-    background: #1ccad8;
-    padding: 1em 2em 1em 2em;
-    border-radius: 10px;
-    margin: 2em auto 1em;
-}
-.post-body img {
-    width: 100%;
-}
-.post-footer img {
-    width: 3em;
-}
-
-.post-header {
-    display:flex;
-    justify-content: space-between;
-    padding-bottom: 1em;
-}
-
-.post-header img {
-    width: 5em;
-    border-radius: 50%;
-}
-
 </script>
 
 
 <style>
+.post {
+  background: #1ccad8;
+  padding: 1em 2em 1em 2em;
+  border-radius: 10px;
+  margin: 2em auto 1em;
+}
+.post-body img {
+  width: 100%;
+}
+.post-footer img {
+  width: 3em;
+}
 
+.post-header {
+  display:flex;
+  justify-content: space-between;
+  padding-bottom: 1em;
+}
+
+.post-header img {
+  width: 5em;
+  border-radius: 50%;
+}
 </style>
