@@ -21,14 +21,7 @@
 
 
 <script>
-    export default {
-    name: "LoginCompo",
-
-    methods: {
-
-    }
-}
-
+    export default {}
 </script>
 
 

@@ -1,22 +1,11 @@
 
 <template>
-  <header-compo></header-compo>
-  <footer-compo></footer-compo>
-  <login-compo></login-compo>
-  <post-compo></post-compo>
+  <router-view></router-view>
 </template>
 <script>
-import HeaderCompo from "@/components/HeaderCompo";
-import PostCompo from "@/components/PostCompo";
-import FooterCompo from "@/components/FooterCompo";
-import LoginCompo from "@/components/LoginCompo";
 export default {
   name: 'App',
   components: {
-    HeaderCompo,
-    PostCompo,
-    FooterCompo,
-    LoginCompo
   }
 }
 </script>

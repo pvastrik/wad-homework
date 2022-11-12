@@ -10,14 +10,14 @@
             <p>Anyone knwos in which room is the lab today?</p>
         </div>
         <div class="post-footer">
-            <img src="res/images/likebutton.png">
+            <img src="@/assets/likebutton.png">
         </div>
     </div>
 </template>
 
 
 <script>
-
+export default {}
 </script>
 
 

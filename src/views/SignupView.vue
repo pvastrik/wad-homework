@@ -1,14 +1,13 @@
 <template>
   <header-compo></header-compo>
-
-  <post-compo></post-compo>
+  <login-compo></login-compo>
   <footer-compo></footer-compo>
 </template>
 <script>
 import HeaderCompo from "@/components/HeaderCompo.vue";
-import PostCompo from "@/components/PostCompo.vue";
+import LoginCompo from "@/components/LoginCompo.vue";
 import FooterCompo from "@/components/FooterCompo.vue";
 export default {
-  components: {HeaderCompo, PostCompo, FooterCompo}
+  components: {FooterCompo, LoginCompo, HeaderCompo},
 }
 </script>
