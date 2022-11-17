@@ -24,7 +24,16 @@
 
       </div>
       <div class="center">
-        <post-compo></post-compo>
+        <post-compo v-for="post in posts" 
+            :key="post.id" 
+            :profilePic="post.profilePic" 
+            :date="post.date" 
+            :bodyImage="post.bodyImage" 
+            :postImageAlt="post.postImageAlt" 
+            :body="post.body" 
+            :likes="post.likes" 
+            :dislikes="post.dislikes">
+        </post-compo>
       </div>
 
       <div class="right">
@@ -44,7 +53,16 @@ import HeaderCompo from "@/components/HeaderCompo.vue";
 import PostCompo from "@/components/PostCompo.vue";
 import FooterCompo from "@/components/FooterCompo.vue";
 export default {
-  components: {HeaderCompo, PostCompo, FooterCompo}
+  components: {
+    HeaderCompo, 
+    PostCompo, 
+    FooterCompo
+  },
+  data() {
+    return {
+        posts: this.$store.state.postList
+    }
+  }
 }
 </script>
 

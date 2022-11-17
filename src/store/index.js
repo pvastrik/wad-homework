@@ -8,9 +8,9 @@ export default createStore({
             {
                 userId: 1,
                 id: 1,
-                profilePic: "/res/images/profile1.png",
+                profilePic: "profile1.png",
                 date: "Oct 22, 2022",
-                bodyImage: "/res/images/tartu.jpg",
+                bodyImage: "tartu.jpg",
                 postImageAlt: "Tartu town square",
                 body: "quia et suscipit\nsuscipit recusandae consequuntur expedita et cum\nreprehenderit molestiae ut ut quas totam\nnostrum rerum est autem sunt rem eveniet architecto",
                 likes: 1,
@@ -20,7 +20,7 @@ export default createStore({
             {
               userId: 2,
               id: 2,
-              profilePic: "/res/images/profile1.png",
+              profilePic: "@/assets/profile1.png",
               date: "Oct 22, 2022",
               postImageAlt: "",
               body: "Anyone knows in which room is the lab today?",
@@ -31,9 +31,9 @@ export default createStore({
             {
               userId: 3,
               id: 3,
-              profilePic: "/res/images/profile1.png",
+              profilePic: "@/assets/profile1.png",
               date: "Oct 22, 2022",
-              bodyImage: "/res/images/pärnu.jpg",
+              bodyImage: "@/assets/pärnu.jpg",
               postImageAlt: "Pärnu skyline",
               body: "Pärnu 2022",
               likes: 123,
@@ -43,7 +43,7 @@ export default createStore({
             {
               userId: 4,
               id: 4,
-              profilePic: "/res/images/profile1.png",
+              profilePic: "@/assets/profile1.png",
               date: "Oct 22, 2022",
               postImageAlt: "",
               body: "Tere, kallid sõbrad <br> At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.",
@@ -54,9 +54,9 @@ export default createStore({
             {
               userId: 5,
               id: 5,
-              profilePic: "/res/images/profile1.png",
+              profilePic: "@/assets/profile1.png",
               date: "Oct 22, 2022",
-              bodyImage: "/res/images/tallinn.jpg",
+              bodyImage: "@/assets/tallinn.jpg",
               postImageAlt: "Tallinn skyline",
               body: "Hello from Tallinn!!!",
               likes: 12345,
@@ -66,9 +66,9 @@ export default createStore({
             {
               userId: 6,
               id: 6,
-              profilePic: "/res/images/profile1.png",
+              profilePic: "@/assets/profile1.png",
               date: "Oct 22, 2022",
-              bodyImage: "/res/images/tartu%20ülikool.jpg",
+              bodyImage: "@/assets/tartu%20ülikool.jpg",
               postImageAlt: "Tartu University",
               body: "Start of a new school year ...",
               likes: 123456,
@@ -78,7 +78,7 @@ export default createStore({
             {
               userId: 7,
               id: 7,
-              profilePic: "/res/images/profile1.png",
+              profilePic: "@/assets/profile1.png",
               date: "Oct 22, 2022",
               postImageAlt: "",
               body: "quia et suscipit\nsuscipit recusandae consequuntur expedita et cum\nreprehenderit molestiae ut ut quas totam\nnostrum rerum est autem sunt rem eveniet architecto",
@@ -89,9 +89,9 @@ export default createStore({
             {
               userId: 8,
               id: 8,
-              profilePic: "/res/images/profile1.png",
+              profilePic: "@/assets/profile1.png",
               date: "Oct 22, 2022",
-              bodyImage: "/res/images/villjandi.jpg",
+              bodyImage: "@/assets/villjandi.jpg",
               postImageAlt: "Viljandi",
               body: "Heelllloooo",
               likes: 1234,
@@ -101,9 +101,9 @@ export default createStore({
             {
               userId: 9,
               id: 9,
-              profilePic: "/res/images/profile1.png",
+              profilePic: "@/assets/profile1.png",
               date: "Oct 22, 2022",
-              bodyImage: "/res/images/valga.jpg",
+              bodyImage: "@/assets/valga.jpg",
               postImageAlt: "Valga",
               body: "Beautiful view!! <3",
               likes: 123,
@@ -113,9 +113,9 @@ export default createStore({
             {
               userId: 10,
               id: 10,
-              profilePic: "/res/images/profile1.png",
+              profilePic: "@/assets/profile1.png",
               date: "Oct 22, 2022",
-              bodyImage: "/res/images/narva.jpg",
+              bodyImage: "@/assets/narva.jpg",
               postImageAlt: "Narva",
               body: "Greetings from near the boarder",
               likes: 12,
@@ -138,7 +138,7 @@ export default createStore({
 
         decreaseLikes: state => {
             state.postList.forEach(p => {
-                p.likes -= 1
+                p.dislikes -= 1
             })
         }
     },

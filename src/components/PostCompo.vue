@@ -3,18 +3,17 @@
     
     <div class="post">
         <div class="post-header">
-            <span class="author"> <img src="" alt=""> {{ }} </span>
-            <span class="author"> <b>Author:</b> {{ }} </span>
-            <img src="" alt="">
-            <p>Oct 2, 2022</p>
+            <img src={{profilePic}} alt="Profile picture">
+            <span>{{date}}</span>
         </div>
         <div class="post-body">
-            <p>Anyone knwos in which room is the lab today?</p>
+            <img src={{bodyImage}} alt={{postImageAlt}}>
+            <p>{{body}}</p>
         </div>
         <div class="post-footer">
             <img @click="increaseLikes" src="@/assets/likebutton.png">
             <img @click="decreaseLikes" src="@/assets/dislikebutton.png">
-            <p>Likes: {{ count }} Dislikes: {{ count }}</p>
+            <p>Likes: {{ likes }} Dislikes: {{ dislikes }}</p>
         </div>
     </div>
 </template>
@@ -22,6 +21,7 @@
 
 <script>
 export default {
+  props: ['profilePic', 'date', 'bodyImage', 'postImageAlt', 'body', 'likes', 'dislikes'],
   methods: {
     increaseLikes: function () {
       this.$store.dispatch("increaseLikesAction")
