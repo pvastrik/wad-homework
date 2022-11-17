@@ -8,7 +8,7 @@ export default createStore({
             {
                 userId: 1,
                 id: 1,
-                profilePic: "profile1.png",
+                profilePic: 'profile1.png',
                 date: "Oct 22, 2022",
                 bodyImage: "tartu.jpg",
                 postImageAlt: "Tartu town square",
