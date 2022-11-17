@@ -1,8 +1,10 @@
 <template>
+
+    
     <div class="post">
         <div class="post-header">
-            <span class="author"> <img src="" alt=""> {{ product.author }} </span>
-            <span class="author"> <b>Author:</b> {{ product.author }} </span>
+            <span class="author"> <img src="" alt=""> {{ }} </span>
+            <span class="author"> <b>Author:</b> {{ }} </span>
             <img src="" alt="">
             <p>Oct 2, 2022</p>
         </div>

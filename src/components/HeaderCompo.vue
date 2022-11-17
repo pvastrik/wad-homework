@@ -5,6 +5,9 @@
         <li>
           <h1><router-link to="/home">Home</router-link></h1>
         </li>
+        <li>
+          <h1><router-link to="/">Signup</router-link></h1>
+        </li>
       </ul>
     </div>
     <a v-on:click="menutoggle()"><img id="logo" src="@/assets/profile.png" alt="Profile picture"></a>
