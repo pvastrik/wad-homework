@@ -14,6 +14,7 @@ export default createStore({
                 postImageAlt: "Tartu town square",
                 body: "quia et suscipit\nsuscipit recusandae consequuntur expedita et cum\nreprehenderit molestiae ut ut quas totam\nnostrum rerum est autem sunt rem eveniet architecto",
                 likes: 1,
+                dislikes: 0,
             },
           
             {
@@ -24,6 +25,7 @@ export default createStore({
               postImageAlt: "",
               body: "Anyone knows in which room is the lab today?",
               likes: 12,
+              dislikes: 1,
             },
           
             {
@@ -35,6 +37,7 @@ export default createStore({
               postImageAlt: "Pärnu skyline",
               body: "Pärnu 2022",
               likes: 123,
+              dislikes: 12,
             },
           
             {
@@ -45,6 +48,7 @@ export default createStore({
               postImageAlt: "",
               body: "Tere, kallid sõbrad <br> At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.",
               likes: 1234,
+              dislikes: 123,
             },
           
             {
@@ -56,6 +60,7 @@ export default createStore({
               postImageAlt: "Tallinn skyline",
               body: "Hello from Tallinn!!!",
               likes: 12345,
+              dislikes: 1234,
             },
           
             {
@@ -67,6 +72,7 @@ export default createStore({
               postImageAlt: "Tartu University",
               body: "Start of a new school year ...",
               likes: 123456,
+              dislikes: 12345,
             },
           
             {
@@ -77,6 +83,7 @@ export default createStore({
               postImageAlt: "",
               body: "quia et suscipit\nsuscipit recusandae consequuntur expedita et cum\nreprehenderit molestiae ut ut quas totam\nnostrum rerum est autem sunt rem eveniet architecto",
               likes: 12345,
+              dislikes: 1234,
             },
           
             {
@@ -88,6 +95,7 @@ export default createStore({
               postImageAlt: "Viljandi",
               body: "Heelllloooo",
               likes: 1234,
+              dislikes: 123,
             },
           
             {
@@ -99,6 +107,7 @@ export default createStore({
               postImageAlt: "Valga",
               body: "Beautiful view!! <3",
               likes: 123,
+              dislikes: 12,
             },
           
             {
@@ -110,6 +119,7 @@ export default createStore({
               postImageAlt: "Narva",
               body: "Greetings from near the boarder",
               likes: 12,
+              dislikes: 1,
             }
         
         

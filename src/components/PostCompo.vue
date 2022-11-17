@@ -12,14 +12,28 @@
             <p>Anyone knwos in which room is the lab today?</p>
         </div>
         <div class="post-footer">
-            <img src="@/assets/likebutton.png">
+            <img @click="increaseLikes" src="@/assets/likebutton.png">
+            <img @click="decreaseLikes" src="@/assets/dislikebutton.png">
+            <p>Likes: {{ count }} Dislikes: {{ count }}</p>
         </div>
     </div>
 </template>
 
 
 <script>
-export default {}
+export default {
+  methods: {
+    increaseLikes: function () {
+      this.$store.dispatch("increaseLikesAction")
+      
+    },
+    decreaseLikes: function () {
+      this.$store.dispatch("decreaseLikesAction")
+    }
+
+  }
+
+}
 </script>
 
 
