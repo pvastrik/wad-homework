@@ -3,11 +3,14 @@
     
     <div class="post">
         <div class="post-header">
-            <img src={{profilePic}} alt="Profile picture">
+            <img src="resolve_img_url(profilePic)" />
+            <!-- <img src="@/assets/profile1.png" alt="Profile picture">  -->
             <span>{{date}}</span>
         </div>
         <div class="post-body">
-            <img src={{bodyImage}} alt={{postImageAlt}}>
+            <div v-if="bodyImage!=''"> 
+              <img src="resolve_img_url(bodyImage)" alt={{postImageAlt}}>
+            </div>
             <p>{{body}}</p>
         </div>
         <div class="post-footer">
@@ -29,6 +32,10 @@ export default {
     },
     decreaseLikes: function () {
       this.$store.dispatch("decreaseLikesAction")
+    },
+    resolve_img_url: function (path) {
+      let images = require.context('../assets/', false, /\.png$|\.jpg$/)
+      return images("./"+path)
     }
 
   }
