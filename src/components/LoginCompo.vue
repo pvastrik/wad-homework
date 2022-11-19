@@ -1,18 +1,30 @@
+
 <template>
     <div class="container">
         <div class = "item">
             <h2 class = "textformating2">Welcome to PostIt!</h2>
-            <h2 class="textformating2">Please login or signup</h2>
+            <h2 class="textformating2">Please sign up</h2>
             <br>
-            <form action="index.html">
+            <form @submit.stop.prevent="signUp">
                 <h2 class="textformating2">Email</h2>
-                <input id=email type="email" placeholder="Email" required>
+                <input id=email type="email" placeholder="Email" v-model="email">
                 <br>
                 <h2 class="textformating2">Password</h2>
-                <input id=password type="password" placeholder="Password" required>
+                <input v-model="password.password" id="password" type="password" placeholder="Password">
                 <br>
-                <input id="buttonInput" type="submit" value="Log in"/>
-                <h2 class="textformating1">Forgot password</h2>
+                <input v-model="password.confirm" id="confirm" type="password" placeholder="Confirm password">
+              <div v-if="v$">
+              <div
+                  v-if="submit && v$.password.$invalid"
+                  class="invalid-feedback left">
+                <span v-if="v$.password.$model.password===''">Password is required</span>
+                <span v-if="v$.password && !v$.password.password.valid">Password must contain atleast One Uppercase, One Lowercase, One Number and One Special Chacter</span>
+                <span v-if="v$.password && v$.password.password.valid && !v$.user.password.minLength">Password must be minimum 8 characters</span>
+                <span v-if="v$.password && v$.password.password.valid && !v$.user.password.maxLength">Password must be maximum 15 characters</span>
+                <span v-if="v$.password && v$.password.password.valid && !v$.password.confirm.sameAs">Passwords must be the same</span>
+              </div>
+              </div>
+                <input id="buttonInput" type="submit"/>
             </form>
         </div>
     </div>
@@ -21,33 +33,111 @@
 
 
 <script>
+//import { required, minLength, maxLength} from 'vuelidate/lib/validators';
+import useValidate from '@vuelidate/core'
+import { required, email, minLength, maxLength, sameAs } from '@vuelidate/validators'
+import router from "@/router";
+
     export default {
-      methods:{
-        validations: {
-          password:{
-            contains2UpperCase: function (value) {
-              return /[A-Z].*[A-Z]/.test(value)
-            },
-            containsLoweCase: function (value) {
-              return /[a-z]/.test(value)
-            },
-            containsNumber: function (value) {
-              return /[0-9]/.test(value)
-            },
-            containsSpecial: function (value) {
-              return /[_]/.test(value)
-            },
-            startsWithUpper: function (value) {
-              return /[A-Z]/.test(value.substring(0, 1))
-            },
-            length: function (value) {
-              return value.length > 7 && value.length < 16
-            }
+
+      data() {
+        return {
+          v$: useValidate(),
+          email: "",
+          password: {
+            password: "",
+            confirm: "",
+          },
+          submit: false,
+        }
+      },
+      methods: {
+        signUp() {
+          this.submit = true;
+          console.log(this.v$)
+          console.log(this.v$.email)
+          this.v$.$validate();
+          if (this.v$.password) {
+            console.log(true)
+
+          } else {
+            console.log(this.v$.password)
           }
+          console.log(this.v$.password.$model.password)
+
+          console.log(this.v$)
+          console.log(this.v$.email)
+          console.log(this.v$.password.$error)
+          if (!this.v$.$error) {
+            router.push("home")
+         } else {
+            var curError = document.querySelector(".passwordError")
+            console.log(curError)
+            if (curError===null) {
+
+              var error = document.createElement("p")
+              error.className = "passwordError"
+              error.innerHTML = `Password did not meet requirements! <br>
+        The password should be at least 8 chars and less than 15 chars.<br>
+        Include at least one uppercase alphabet character, <br>two lowercase alphabet characters.
+one numeric value,<br> the character "-" and start with an uppercase letter.`
+              document.querySelector("form").appendChild(error)
+            }
+         }
+        },
+      },
+      validations() {
+        return {
+          email: {required, email},
+          password: {
+            password: {required,
+            minLength: minLength(8),
+            maxLength: maxLength(15),
+              valid: function (value) {
+                const containsUpper = /[A-Z]/.test(value);
+                const contains2Lower =  /[a-z].*[a-z]/.test(value);
+                const containsNumber = /[0-9]/.test(value);
+                const containsSpecial = /_/.test(value);
+                const startsWithUpper = /[A-Z]/.test(value.substring(0, 1));
+                return (containsSpecial && startsWithUpper && containsUpper
+                    && containsNumber && contains2Lower);
+              },
+            },
+            confirm: {required, sameAs: sameAs(this.password.password)},
+          },
+          submit: {}
         }
       }
-
     }
+    //   validations: {
+    //       user: {
+    //         password: {
+    //           required: required,
+    //           valid: function (value) {
+    //             const contains2Upper = /[A-Z].*[A-Z]/.test(value);
+    //             const containsLower =  /[a-z]/.test(value);
+    //             const containsNumber = /[0-9]/.test(value);
+    //             const containsSpecial = /[_]/.test(value);
+    //             const startsWithUpper = /[A-Z]/.test(value.substring(0, 1));
+    //             return (containsSpecial && startsWithUpper && contains2Upper
+    //                 && containsNumber && containsLower);
+    //           },
+    //           minLength: minLength(8),
+    //           maxLength: maxLength(15),
+    //         }
+    //       }
+    //     },
+    //   computed: {
+    //     isDisabled() {
+    //       return this.$v.$invalid;
+    //     }
+    //   },
+    //   created() {
+    //     this.submitted = true;
+    //     return this.$v.$touch();
+    //   }
+    //
+    // }
 </script>
 
 
