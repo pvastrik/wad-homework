@@ -147,6 +147,16 @@ export default {
     margin-left: auto;
 }
 
+button {
+    margin: 0.5em;
+    text-align: center;
+    align-items: center;
+    background-color: #ffd2fc;
+    border-radius: 5%;
+    font-size: 1em;
+    border-color: #ffd2fc;
+}
+
 @media (max-width: 1000px) {
     .right {
         display: none;
