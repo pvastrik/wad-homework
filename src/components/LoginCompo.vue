@@ -2,7 +2,7 @@
 <template>
     <div class="container">
         <div class = "item">
-            <h2 class = "textformating2">Welcome to PostIt!</h2>
+            <h2 class = "textformating1">Welcome to PostIt!</h2>
             <h2 class="textformating2">Please sign up</h2>
             <br>
             <form @submit.stop.prevent="signUp">
@@ -24,6 +24,7 @@
                 <span v-if="v$.password && v$.password.password.valid && !v$.password.confirm.sameAs">Passwords must be the same</span>
               </div>
               </div>
+                <br>
                 <input id="buttonInput" type="submit"/>
             </form>
         </div>
@@ -77,10 +78,10 @@ import router from "@/router";
 
               var error = document.createElement("p")
               error.className = "passwordError"
-              error.innerHTML = `Password did not meet requirements! <br>
-        The password should be at least 8 chars and less than 15 chars.<br>
-        Include at least one uppercase alphabet character, <br>two lowercase alphabet characters.
-one numeric value,<br> the character "-" and start with an uppercase letter.`
+              error.innerHTML = `Password did not meet requirements! <br><br>
+                The password should be <b>at least 8 chars and less than 15 chars.</b><br>
+                Include at least <b>one uppercase</b> alphabet character, <br><b>two lowercase</b> alphabet characters.
+                <b>one numeric</b> value,<br> the <b>character "-"</b> and <b>start with an uppercase</b> letter.`
               document.querySelector("form").appendChild(error)
             }
          }
@@ -161,8 +162,7 @@ one numeric value,<br> the character "-" and start with an uppercase letter.`
 
 
 .textformating1 {
-    color: #1ccad8;
-    font-size: 1em;
+    font-size: 1.4em;
     text-align: center;
 
 }
