@@ -34,6 +34,7 @@
             :likes="post.likes" 
             :dislikes="post.dislikes">
         </post-compo>
+        <button type="button" @click="resetLikesDislikes">Reset likes and dislikes</button>
       </div>
 
       <div class="right">
@@ -61,6 +62,12 @@ export default {
   data() {
     return {
         posts: this.$store.state.postList
+    }
+  },
+
+  methods: {
+    resetLikesDislikes: function () {
+        return this.$store.dispatch("resetLikesDislikesAction")
     }
   }
 }

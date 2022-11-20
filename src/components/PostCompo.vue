@@ -24,7 +24,7 @@
 
 <script>
 export default {
-  props: ['profilePic', 'date', 'bodyImage', 'postImageAlt', 'body', 'likes', 'dislikes'],
+  props: ['id', 'profilePic', 'date', 'bodyImage', 'postImageAlt', 'body', 'likes', 'dislikes'],
   methods: {
     increaseLikes: function () {
       this.$store.dispatch("increaseLikesAction")
@@ -32,12 +32,7 @@ export default {
     },
     decreaseLikes: function () {
       this.$store.dispatch("decreaseLikesAction")
-    },
-    resolve_img_url: function (path) {
-      let images = require.context('../assets/', false, /\.png$|\.jpg$/)
-      return images("./"+path)
     }
-
   }
 
 }
