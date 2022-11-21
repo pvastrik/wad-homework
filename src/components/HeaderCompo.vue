@@ -78,6 +78,10 @@ h1 {
   right: 2em;
   border-radius: 50%;
 }
+
+#logo:hover {
+  cursor: pointer;
+}
 .menu {
   display: none;
 }
@@ -123,6 +127,12 @@ h1 {
 a {
   text-decoration: none;
   color: inherit;
+}
+a:hover {
+  text-decoration: none;
+}
+a:visited {
+  color:inherit;
 }
 
 

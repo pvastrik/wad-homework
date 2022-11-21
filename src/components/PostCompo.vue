@@ -13,8 +13,8 @@
             <pre>{{body}}</pre>
         </div>
         <div class="post-footer">
-            <img @click="increaseLikes(id)" src="@/assets/likebutton.png">
-            <img @click="decreaseLikes(id)" src="@/assets/dislikebutton.png">
+            <img class="likebutton" @click="increaseLikes(id)" src="@/assets/likebutton.png">
+            <img class="likebutton" @click="decreaseLikes(id)" src="@/assets/dislikebutton.png">
             <p>Likes: {{ likes }} Dislikes: {{ dislikes }}</p>
         </div>
     </div>
@@ -66,5 +66,9 @@ export default {
 .post-header img {
   width: 5em;
   border-radius: 50%;
+}
+
+.likebutton:hover {
+  cursor: pointer;
 }
 </style>
