@@ -3,8 +3,7 @@
     
     <div class="post">
         <div class="post-header">
-            <img v-bind:src="require('@/assets/' + profilePic)" />
-            <!-- <img src="@/assets/profile1.png" alt="Profile picture">  -->
+            <img v-bind:src="require('@/assets/' + profilePic)" alt="Profile picture"/>
             <span>{{date}}</span>
         </div>
         <div class="post-body">
