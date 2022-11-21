@@ -10,7 +10,7 @@
             <div v-if="bodyImage!=''"> 
               <img v-bind:src="require('@/assets/'+bodyImage)" alt={{postImageAlt}}>
             </div>
-            <p>{{body}}</p>
+            <pre>{{body}}</pre>
         </div>
         <div class="post-footer">
             <img @click="increaseLikes(id)" src="@/assets/likebutton.png">
@@ -44,6 +44,11 @@ export default {
   padding: 1em 2em 1em 2em;
   border-radius: 10px;
   margin: 2em auto 1em;
+}
+.post pre{
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  font-family: inherit;
 }
 .post-body img {
   width: 100%;
