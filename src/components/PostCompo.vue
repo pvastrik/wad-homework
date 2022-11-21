@@ -14,8 +14,8 @@
             <p>{{body}}</p>
         </div>
         <div class="post-footer">
-            <img @click="increaseLikes" src="@/assets/likebutton.png">
-            <img @click="decreaseLikes" src="@/assets/dislikebutton.png">
+            <img @click="increaseLikes(id)" src="@/assets/likebutton.png">
+            <img @click="decreaseLikes(id)" src="@/assets/dislikebutton.png">
             <p>Likes: {{ likes }} Dislikes: {{ dislikes }}</p>
         </div>
     </div>
@@ -26,12 +26,12 @@
 export default {
   props: ['id', 'profilePic', 'date', 'bodyImage', 'postImageAlt', 'body', 'likes', 'dislikes'],
   methods: {
-    increaseLikes: function () {
-      this.$store.dispatch("increaseLikesAction")
+    increaseLikes: function (id) {
+      this.$store.dispatch("increaseLikesAction", id)
       
     },
-    decreaseLikes: function () {
-      this.$store.dispatch("decreaseLikesAction")
+    decreaseLikes: function (id) {
+      this.$store.dispatch("decreaseLikesAction", id)
     }
   }
 

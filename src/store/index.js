@@ -123,15 +123,19 @@ export default createStore({
         
     },
     mutations: {
-        increaseLikes: state => {
+        increaseLikes: (state, id) => {
             state.postList.forEach(p => {
-                p.likes += 1
+                if (id == p.id) {
+                    p.likes += 1
+                }
             })
         },
 
-        decreaseLikes: state => {
+        decreaseLikes: (state, id) => {
             state.postList.forEach(p => {
-                p.dislikes += 1
+                if (id == p.id) {
+                    p.dislikes += 1
+                }
             })
         },
 
@@ -143,21 +147,15 @@ export default createStore({
         },
     },
     actions: {
-        increaseLikesAction: action => {
-            setTimeout(function () {
-                action.commit("increaseLikes")
-            }, 0)
+        increaseLikesAction: (action, id) => {
+            action.commit("increaseLikes", id)
         },
 
-        decreaseLikesAction: action => {
-            setTimeout(function () {
-                action.commit("decreaseLikes")
-            }, 0)
+        decreaseLikesAction: (action, id) => {
+            action.commit("decreaseLikes", id)
         },
         resetLikesDislikesAction: action => {
-            setTimeout(function () {
-                action.commit("resetLikes")
-            }, 0)
+            action.commit("resetLikes")
         }
     }
 })

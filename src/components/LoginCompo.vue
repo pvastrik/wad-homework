@@ -81,7 +81,7 @@ import router from "@/router";
               error.innerHTML = `Password did not meet requirements! <br><br>
                 The password should be <b>at least 8 chars and less than 15 chars.</b><br>
                 Include at least <b>one uppercase</b> alphabet character, <br><b>two lowercase</b> alphabet characters.
-                <b>one numeric</b> value,<br> the <b>character "-"</b> and <b>start with an uppercase</b> letter.`
+                <b>one numeric</b> value,<br> the <b>character "_"</b> and <b>start with an uppercase</b> letter.`
               document.querySelector("form").appendChild(error)
             }
          }

@@ -26,6 +26,7 @@
       <div class="center">
         <post-compo v-for="post in posts" 
             :key="post.id" 
+            :id="post.id"
             :profilePic="post.profilePic" 
             :date="post.date" 
             :bodyImage="post.bodyImage" 
