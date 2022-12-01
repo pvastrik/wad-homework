@@ -19,10 +19,7 @@
           <a href="#">Edit profile</a>
         </li>
         <li>
-          <a href="#">Settings</a>
-        </li>
-        <li>
-          <a href="#">Log out</a>
+          <a href="/">Log out</a>
         </li>
       </ul>
     </div>

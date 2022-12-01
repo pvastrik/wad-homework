@@ -5,6 +5,8 @@
       <h2 class="textformating2">Please sign up</h2>
       <br>
       <form @submit.stop.prevent="signUp">
+        <h2 class="textformating2">Username</h2>
+        <input id=username placeholder="Username" v-model="username">
         <h2 class="textformating2">Email</h2>
         <input id=email type="email" placeholder="Email" v-model="email">
         <br>
