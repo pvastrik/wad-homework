@@ -1,17 +1,18 @@
 <template>
   <header-compo></header-compo>
-  <add-post-compo></add-post-compo>
+  <contact-compo></contact-compo>
   <footer-compo></footer-compo>
 </template>
 
 <script>
 import HeaderCompo from "@/components/HeaderCompo.vue";
-import AddPostCompo from "@/components/AddPostCompo.vue";
 import FooterCompo from "@/components/FooterCompo.vue";
+import ContactCompo from "@/components/ContactCompo.vue";
+
 
 export default {
-  name: "LoginView",
-  components: {HeaderCompo, FooterCompo, AddPostCompo}
+  name: "ContactView",
+  components: {FooterCompo, ContactCompo, HeaderCompo}
 }
 </script>
 

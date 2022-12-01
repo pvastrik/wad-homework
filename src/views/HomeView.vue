@@ -24,8 +24,9 @@
 
       </div>
       <div class="center">
-        <button type="button" >Log out</button>
-        <post-compo v-for="post in posts" 
+        <router-link to="/login" custom v-slot="{navigate}"><button @click="navigate" role="link">Log out</button></router-link>
+
+        <post-compo v-for="post in posts"
             :key="post.id"
             :id="post.id"
             :profilePic="post.profilePic" 
@@ -36,7 +37,7 @@
             :likes="post.likes" 
             :dislikes="post.dislikes">
         </post-compo>
-        <button type="button" >Add post</button>
+        <router-link to="/addPost" custom v-slot="{navigate}"><button @click="navigate" role="link">Add post</button></router-link>
         <button type="button" >Delete all</button>
       </div>
 

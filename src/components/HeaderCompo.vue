@@ -6,7 +6,7 @@
           <h1><router-link to="/home">Home</router-link></h1>
         </li>
         <li>
-          <h1><router-link to="/">Signup</router-link></h1>
+          <h1><router-link to="/">Contacts</router-link></h1>
         </li>
       </ul>
     </div>
