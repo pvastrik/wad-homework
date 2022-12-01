@@ -1,22 +1,24 @@
 <template>
   <div class="container">
     <div class="item">
-      <h2 class="textformating2">Welcome to PostIt!</h2>
-      <h2 class="textformating2">Please sign up</h2>
+      <h2 class="textformating">Welcome to PostIt!</h2>
+      <h2 class="textformating">Please log in</h2>
       <br>
       <form @submit.stop.prevent="signUp">
-        <h2 class="textformating2">Email</h2>
+        <h2 class="textformating">Email</h2>
         <input id=email type="email" placeholder="Email" v-model="email">
         <br>
-        <h2 class="textformating2">Password</h2>
+        <h2 class="textformating">Password</h2>
         <input v-model="password.password" id="password" type="password" placeholder="Password">
         <br>
         <input v-model="password.confirm" id="confirm" type="password" placeholder="Confirm password">
         <div v-if="validationError" class="error">
           <pre class="error">{{validationError}}</pre>
         </div>
-        <input id="buttonInput" type="submit"/>
+        <input id="buttonInput" class="button" type="submit"/>
       </form>
+      <h2 class="textformating">Or</h2>
+      <router-link to="/signup" custom v-slot="{navigate}"><button @click="navigate" class="button" role="link">Sign up</button></router-link>
     </div>
   </div>
 
@@ -86,39 +88,21 @@ export default {
     }
   }
 }
-//   validations: {
-//       user: {
-//         password: {
-//           required: required,
-//           valid: function (value) {
-//             const contains2Upper = /[A-Z].*[A-Z]/.test(value);
-//             const containsLower =  /[a-z]/.test(value);
-//             const containsNumber = /[0-9]/.test(value);
-//             const containsSpecial = /[_]/.test(value);
-//             const startsWithUpper = /[A-Z]/.test(value.substring(0, 1));
-//             return (containsSpecial && startsWithUpper && contains2Upper
-//                 && containsNumber && containsLower);
-//           },
-//           minLength: minLength(8),
-//           maxLength: maxLength(15),
-//         }
-//       }
-//     },
-//   computed: {
-//     isDisabled() {
-//       return this.$v.$invalid;
-//     }
-//   },
-//   created() {
-//     this.submitted = true;
-//     return this.$v.$touch();
-//   }
-//
-// }
+
 </script>
 
 
 <style>
+
+button {
+  margin: 0.5em;
+  text-align: center;
+  align-items: center;
+  background-color: #2f97c1;
+  border-radius: 5%;
+  font-size: 1em;
+  border-color: #2f97c1;
+}
 
 .error {
   margin: 1em 0 1em 0;
@@ -147,18 +131,20 @@ export default {
 
 #buttonInput {
   width:50%;
+  margin: 0.5em;
+  text-align: center;
+  align-items: center;
+  background-color: #2f97c1;
+  border-radius: 5%;
+  font-size: 1em;
+  border-color: #2f97c1;
 }
-.textformating1 {
-  color: #1ccad8;
+
+.textformating {
   font-size: 1em;
   text-align: center;
-
 }
 
-.textformating2 {
-  font-size: 1em;
-  text-align: center;
-}
 
 
 </style>
