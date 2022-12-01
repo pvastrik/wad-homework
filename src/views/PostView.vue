@@ -4,7 +4,7 @@
 
 <script>
 export default {
-  name: "LoginView"
+  name: "PostView"
 }
 </script>
 

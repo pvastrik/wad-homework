@@ -24,6 +24,7 @@
 
       </div>
       <div class="center">
+        <button type="button" >Log out</button>
         <post-compo v-for="post in posts" 
             :key="post.id"
             :id="post.id"
@@ -35,7 +36,8 @@
             :likes="post.likes" 
             :dislikes="post.dislikes">
         </post-compo>
-        <button type="button" @click="resetLikesDislikes">Reset likes and dislikes</button>
+        <button type="button" >Add post</button>
+        <button type="button" >Delete all</button>
       </div>
 
       <div class="right">

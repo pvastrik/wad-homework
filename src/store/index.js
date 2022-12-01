@@ -138,13 +138,6 @@ export default createStore({
                 }
             })
         },
-
-        resetLikes: state => {
-            state.postList.forEach(p => {
-                p.likes = 0
-                p.dislikes = 0
-            })
-        },
     },
     actions: {
         increaseLikesAction: (action, id) => {
@@ -154,8 +147,6 @@ export default createStore({
         decreaseLikesAction: (action, id) => {
             action.commit("decreaseLikes", id)
         },
-        resetLikesDislikesAction: action => {
-            action.commit("resetLikes")
-        }
+
     }
 })
