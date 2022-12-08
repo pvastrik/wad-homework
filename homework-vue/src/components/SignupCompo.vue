@@ -36,6 +36,7 @@ export default {
   data() {
     return {
       v$: useValidate(),
+      username: "",
       email: "",
       password: {
         password: "",
@@ -51,9 +52,11 @@ export default {
       console.log(this.v$)
       if (!this.v$.$error) {
         var data = {
-          email: this.v$.email,
-          password: this.v$.password.password
+          name: this.username,
+          email: this.email,
+          password: this.password.password
         }
+        console.log(data);
         fetch("http://localhost:3000/auth/signup", {
           method: "POST",
           headers: {
@@ -86,6 +89,7 @@ export default {
   },
   validations() {
     return {
+      username: {required},
       email: {required, email},
       password: {
         password: {

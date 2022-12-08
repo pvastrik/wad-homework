@@ -9,6 +9,11 @@ const jwt = require('jsonwebtoken');
 const app = express();
 
 
+app.use(cors({ origin: 'http://localhost:8080', credentials: true }));
+app.use(express.json());
+
+app.use(cookieParser());
+
 const secret = "gdgdhdbcb770785rgdzqws"; // use a stronger secret
 const maxAge = 60 * 60; //unlike cookies, the expiresIn in jwt token is calculated by seconds not milliseconds
 
@@ -16,14 +21,10 @@ const generateJWT = (id) => {
     return jwt.sign({ id }, secret, { expiresIn: maxAge })
     //jwt.sign(payload, secret, [options, callback]), and it returns the JWT as string
 }
-
-app.use(cors({ origin: 'http://localhost:8080', credentials: true }));
 // The express.json() function is a built-in middleware function in Express.
+
+
 // It parses incoming requests with JSON payloads and is based on body-parser.
-app.use(express.json());
-
-
-app.use(cookieParser());
 
     //  Handling HTTP requests code will go here
 
@@ -31,6 +32,7 @@ app.use(cookieParser());
 app.listen(port, () => {
     console.log("Server is listening to port " + port)
 });
+
 app.post('/api/posts', async(req, res) => {
     try {
         console.log("a post request has arrived to posts");
@@ -94,9 +96,6 @@ app.get('/api/posts/:id', async(req, res) => {
         console.error(err.message);
     }
 });
-app.use(cors({ origin: 'http://localhost:8080', credentials: true }));
-// We need to include "credentials: true" to allow cookies to be represented
-
 // Also "credentials: 'include'" need to be added in Fetch API in the Vue.js App
 
 
@@ -135,12 +134,12 @@ app.post('/auth/signup', async(req, res) => {
     try {
         console.log("a signup request has arrived");
         //console.log(req.body);
-        const { email, password } = req.body;
+        const {name, email, password } = req.body;
 
         const salt = await bcrypt.genSalt(); //  generates the salt, i.e., a random string
         const bcryptPassword = await bcrypt.hash(password, salt) // hash the password and the salt
         const authUser = await pool.query( // insert the user and the hashed password into the database
-            "INSERT INTO users(email, password) values ($1, $2) RETURNING*", [email, bcryptPassword]
+            "INSERT INTO users(name, email, password) values ($1, $2, $3) RETURNING*", [name, email, bcryptPassword]
         );
         console.log(authUser.rows[0].id);
         const token = await generateJWT(authUser.rows[0].id); // generates a JWT by taking the user id as an input (payload)
