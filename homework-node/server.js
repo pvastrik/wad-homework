@@ -64,7 +64,37 @@ app.post('/api/users/', async(req, res) => {
 })
 
 //kustuta postitused
+app.delete('/api/posts', async(req, res) => {
+    try {
+        console.log("delete request to delete users posts");
+        const { userId } = req.params;
+        console.log(post);
+        const deletePosts = await pool.query(
+            "DELETE FROM posts WHERE userId = $1", [userId]
+        );
+        res.json(deletePosts);
+
+    } catch (err) {
+        console.log(err.message);
+    }
+})
+
+
 //muuda postitus
+app.update('/api/posts', async(req, res) => {
+    try {
+        console.log("update request to update users posts");
+        const { userId } = req.params;
+        console.log(post);
+        const updatePosts = await pool.query(
+            "UPDATE posts SET body = $2 WHERE id = $1", [id, body]
+        );
+        res.json(updatePosts);
+
+    } catch (err) {
+        console.log(err.message);
+    }
+})
 
 //4
 //saa postitused
