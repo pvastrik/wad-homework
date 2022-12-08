@@ -2,7 +2,7 @@
   <div class="container">
     <div class = "item">
       <h2 class = "textformating" for="post">Post body</h2>
-      <textarea id="post" rows="8"></textarea>
+      <textarea v-model="postBody" id="post" rows="8"></textarea>
       <br>
       <router-link to="/home" custom v-slot="{navigate}"><button @click="navigate" class="button" role="link">Create post</button></router-link>
     </div>
@@ -11,7 +11,18 @@
 
 <script>
 export default {
-  name: "AddPostCompo"
+  name: "AddPostCompo",
+  data() {
+    return {
+      postBody: ""
+    }
+  },
+
+  methods: {
+    addPost() {
+
+    }
+  }
 }
 </script>
 

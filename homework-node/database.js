@@ -21,9 +21,9 @@ const execute = async(query) => {
 const createPostTblQuery = `
     CREATE TABLE IF NOT EXISTS "posts" (
 	    "id" SERIAL PRIMARY KEY,         
-	    "title" VARCHAR(200) NOT NULL,
+	    "date" DATE NOT NULL DEFAULT CURRENT_DATE,
 	    "body" VARCHAR(200) NOT NULL,
-        "urllink" VARCHAR(200)  
+        "userid" SERIAL NOT NULL
     );`;
 
 const createUserTblQuery = `
@@ -31,7 +31,7 @@ const createUserTblQuery = `
 	    "id" SERIAL PRIMARY KEY,         
 	    "name" VARCHAR(200) NOT NULL,
 	    "password" VARCHAR(200) NOT NULL,
-        "email" VARCHAR(200)  NOT NULL
+        "email" VARCHAR(200)  NOT NULL UNIQUE
     );`;
 // A function to execute the previous query
 execute(createPostTblQuery).then(result => {

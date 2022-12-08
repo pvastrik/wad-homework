@@ -4,19 +4,18 @@
       <h2 class="textformating">Welcome to PostIt!</h2>
       <h2 class="textformating">Please log in</h2>
       <br>
-      <form @submit.stop.prevent="signUp">
+      <form @submit.stop.prevent="LogIn">
         <h2 class="textformating">Email</h2>
         <input id=email type="email" placeholder="Email" v-model="email">
         <br>
         <h2 class="textformating">Password</h2>
-        <input v-model="password.password" id="password" type="password" placeholder="Password">
+        <input v-model="password" id="password" type="password" placeholder="Password">
         <br>
-        <input v-model="password.confirm" id="confirm" type="password" placeholder="Confirm password">
-        <div v-if="validationError" class="error">
-          <pre class="error">{{validationError}}</pre>
-        </div>
         <input id="buttonInput" class="button" type="submit"/>
       </form>
+      <div v-if="validationError" class="error">
+        <pre class="error">{{validationError}}</pre>
+      </div>
       <h2 class="textformating">Or</h2>
       <router-link to="/signup" custom v-slot="{navigate}"><button @click="navigate" class="button" role="link">Sign up</button></router-link>
     </div>
@@ -27,66 +26,46 @@
 
 <script>
 //import { required, minLength, maxLength} from 'vuelidate/lib/validators';
-import useValidate from '@vuelidate/core'
-import {required, email, minLength, maxLength, sameAs} from '@vuelidate/validators'
 import router from "@/router";
 
 export default {
 
   data() {
     return {
-      v$: useValidate(),
       email: "",
-      password: {
-        password: "",
-        confirm: "",
-      },
+      password: "",
       validationError: "",
     }
   },
   methods: {
-    signUp() {
+    LogIn() {
 
-      this.v$.$validate();
-      console.log(this.v$)
-      if (!this.v$.$error) {
-        router.push("home")
-      } else {
-        this.validationError = "";
-        for (let error of  this.v$.$errors) {
-          if (error.$validator==="sameAs") this.validationError += "Passwords must be same!\n"
-          if (error.$validator==="minLength") this.validationError += "Password must be at least 8 characters!\n"
-          if (error.$validator==="maxLength") this.validationError += "Password must be at most 15 characters!\n"
-          if (error.$validator==="valid") this.validationError += "Password must contain the following:\n" +
-              "\t2 lowercase\n\tsymbol '_'\n\t1 number\n\tstart with uppercase letter\n"
-        }
-
-      }
-    },
-  },
-  validations() {
-    return {
-      email: {required, email},
-      password: {
-        password: {
-          required,
-          minLength: minLength(8),
-          maxLength: maxLength(15),
-          valid: function (value) {
-            const containsUpper = /[A-Z]/.test(value);
-            const contains2Lower = /[a-z].*[a-z]/.test(value);
-            const containsNumber = /[0-9]/.test(value);
-            const containsSpecial = /_/.test(value);
-            const startsWithUpper = /[A-Z]/.test(value.substring(0, 1));
-            return (containsSpecial && startsWithUpper && containsUpper
-                && containsNumber && contains2Lower);
+        fetch("http://localhost:3000/auth/login", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
           },
-        },
-        confirm: {required, sameAs: sameAs(this.password.password)},
+            credentials: "include",
+            body: JSON.stringify(this.$data),
+        })
+            .then((response) => response.json())
+            .then((data) => {
+              console.log(data);
+              // eslint-disable-next-line no-prototype-builtins
+              if (!data.hasOwnProperty("error")) {
+                router.push("home")
+              } else {
+                this.validationError = data.error
+              }
+            })
+            .catch((e) => {
+              console.log(e);
+            });
+
+
       },
-      validationError: {}
-    }
-  }
+    },
+
 }
 
 </script>
