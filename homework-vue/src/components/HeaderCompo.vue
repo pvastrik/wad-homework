@@ -3,10 +3,10 @@
     <div class="containerNavbar">
       <ul>
         <li>
-          <h1><router-link to="/home">Home</router-link></h1>
+          <h1><router-link to="/">Home</router-link></h1>
         </li>
         <li>
-          <h1><router-link to="/">Contacts</router-link></h1>
+          <h1><router-link to="/contact">Contacts</router-link></h1>
         </li>
       </ul>
     </div>

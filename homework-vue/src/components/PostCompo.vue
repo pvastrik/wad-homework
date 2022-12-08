@@ -3,19 +3,16 @@
     
     <div class="post">
         <div class="post-header">
-            <img :src="require('@/assets/' + profilePic)" alt="Profile picture"/>
+            <p>{{username}}</p>
             <span>{{date}}</span>
         </div>
         <div class="post-body">
-            <div v-if="bodyImage!=''"> 
-              <img :src="require('@/assets/'+bodyImage)" alt={{postImageAlt}}>
-            </div>
             <pre>{{body}}</pre>
         </div>
         <div class="post-footer">
             <img class="likebutton" @click="increaseLikes(id)" src="@/assets/likebutton.png">
             <img class="likebutton" @click="decreaseLikes(id)" src="@/assets/dislikebutton.png">
-            <p>Likes: {{ likes }} Dislikes: {{ dislikes }}</p>
+<!--            <p>Likes: {{ likes }} Dislikes: {{ dislikes }}</p>-->
         </div>
     </div>
 </template>
@@ -23,7 +20,7 @@
 
 <script>
 export default {
-  props: ['id', 'profilePic', 'date', 'bodyImage', 'postImageAlt', 'body', 'likes', 'dislikes'],
+  props: ['id', 'username', 'date', 'body'],
   methods: {
     increaseLikes: function (id) {
       this.$store.dispatch("increaseLikesAction", id)

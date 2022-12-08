@@ -9,7 +9,7 @@ const jwt = require('jsonwebtoken');
 const app = express();
 
 
-app.use(cors({ origin: 'http://localhost:8081', credentials: true }));
+app.use(cors({ origin: 'http://localhost:8080', credentials: true }));
 app.use(express.json());
 
 app.use(cookieParser());
@@ -39,7 +39,7 @@ app.post('/api/posts', async(req, res) => {
         const post = req.body;
         console.log(post);
         const newpost = await pool.query(
-            "INSERT INTO posts(title, body, urllink) values ($1, $2, $3)    RETURNING*", [post.title, post.body, post.urllink]
+            "INSERT INTO posts(body, userid) values ($1, $2)    RETURNING*", [post.body, post.userid]
         );
         res.json(newpost);
     } catch (err) {
@@ -47,21 +47,6 @@ app.post('/api/posts', async(req, res) => {
     }
 });
 //postituste saamine
-//lisa kasutaja
-app.post('/api/users/', async(req, res) => {
-    try {
-        console.log("post request to users has arrived");
-        const user = req.body;
-        console.log(post);
-        const newuser = await pool.query(
-            "INSERT INTO users(name, password, email) values ($1, $2, $3) RETURNING*", [user.name, user.password, user.email]
-        );
-        res.json(newuser);
-
-    } catch (err) {
-        console.log(err.message);
-    }
-})
 
 //kustuta postitused
 app.delete('/api/posts', async(req, res) => {
@@ -103,7 +88,7 @@ app.get('/api/posts/', async (req, res) => {
     try {
         console.log("get posts request has arrived");
         const posts = await pool.query(
-            "SELECT * FROM posts"
+            "SELECT posts.id, users.name, posts.body, posts.date FROM posts JOIN users ON users.id = posts.userid"
         );
         res.json(posts.rows);
 
@@ -144,13 +129,13 @@ app.get('/auth/authenticate', async(req, res) => {
                     console.log('token is not verified');
                     res.send({ "authenticated": authenticated }); // authenticated = false
                 } else { // token exists and it is verified
-                    console.log('author is authinticated');
+                    console.log('author is authenticated');
                     authenticated = true;
                     res.send({ "authenticated": authenticated }); // authenticated = true
                 }
             })
         } else { //applies when the token does not exist
-            console.log('author is not authinticated');
+            console.log('author is not authenticated');
             res.send({ "authenticated": authenticated }); // authenticated = false
         }
     } catch (err) {

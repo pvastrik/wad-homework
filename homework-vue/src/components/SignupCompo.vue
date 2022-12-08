@@ -29,7 +29,6 @@
 //import { required, minLength, maxLength} from 'vuelidate/lib/validators';
 import useValidate from '@vuelidate/core'
 import {required, email, minLength, maxLength, sameAs} from '@vuelidate/validators'
-import router from "@/router";
 
 export default {
 
@@ -49,14 +48,12 @@ export default {
     signUp() {
 
       this.v$.$validate();
-      console.log(this.v$)
       if (!this.v$.$error) {
         var data = {
           name: this.username,
           email: this.email,
           password: this.password.password
         }
-        console.log(data);
         fetch("http://localhost:3000/auth/signup", {
           method: "POST",
           headers: {
@@ -67,13 +64,12 @@ export default {
         })
             .then((response) => response.json())
             .then((data) => {
-              console.log(data);
-              router.push("home");
+              this.$store.dispatch("setUserAction", data.user_id)
+              location.assign("/");
             })
             .catch((e) => {
               this.validationError = "Email is already in use.";
               console.log(e);
-              console.log("error");
             })
       } else {
         this.validationError = "";

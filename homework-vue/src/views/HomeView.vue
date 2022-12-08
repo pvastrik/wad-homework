@@ -24,22 +24,19 @@
 
       </div>
       <div class="center">
-        <router-link to="/login" custom v-slot="{navigate}"><button @click="navigate" role="link">Log out</button></router-link>
+        <button @click="logOut" role="link">Log out</button>
 
         <post-compo v-for="post in posts"
             :key="post.id"
             :id="post.id"
-            :profilePic="post.profilePic" 
-            :date="post.date" 
-            :bodyImage="post.bodyImage" 
-            :postImageAlt="post.postImageAlt" 
-            :body="post.body" 
-            :likes="post.likes" 
-            :dislikes="post.dislikes">
+            :date="post.date"
+            :body="post.body"
+            :user="post.username"
+            >
         </post-compo>
         <router-link to="/postUpdate" custom v-slot="{navigate}"><button @click="navigate" role="link">Update post</button></router-link>
         <router-link to="/addPost" custom v-slot="{navigate}"><button @click="navigate" role="link">Add post</button></router-link>
-        <button type="button" >Delete all</button>
+        <button type="button" @click="fetchPosts">Delete all</button>
       </div>
 
       <div class="right">
@@ -60,20 +57,50 @@ import PostCompo from "@/components/PostCompo.vue";
 import FooterCompo from "@/components/FooterCompo.vue";
 export default {
   components: {
-    HeaderCompo, 
-    PostCompo, 
+    HeaderCompo,
+    PostCompo,
     FooterCompo
   },
   data() {
     return {
-        posts: this.$store.state.postList
+      posts: []
     }
   },
 
   methods: {
+    logOut() {
+      fetch("http://localhost:3000/auth/logout", {
+        credentials: 'include'
+      })
+          .then((response) => response.json())
+          .then(() => {
+            console.log('jwt removed');
+            sessionStorage.clear();
+            location.assign("/"); // why redirect to the home directory?
+          })
+          .catch((e) => {
+            console.log(e);
+          });
+    },
+    fetchPosts() {
+      fetch(`http://localhost:3000/api/posts/`)
+          .then((response) => response.json())
+          .then((data) => {
+            for (let i = 0; i< data.length;i++) {
+              let dateformat = data[i].date.substring(0,10)
+              data[i].date = dateformat
+            }
+            this.posts = data
+            console.log(data)
+          })
+          .catch((err) => console.log(err.message));
+    },
     resetLikesDislikes: function () {
-        return this.$store.dispatch("resetLikesDislikesAction")
+      return this.$store.dispatch("resetLikesDislikesAction")
     }
+  },
+  mounted() {
+    this.fetchPosts();
   }
 }
 </script>

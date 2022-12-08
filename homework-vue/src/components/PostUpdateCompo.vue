@@ -4,8 +4,8 @@
         <h2 class = "textformating" for="post">Post body</h2>
         <textarea id="post" rows="8"></textarea>
         <br>
-        <router-link to="/home" custom v-slot="{navigate}"><button @click="navigate" class="button" role="link">Update</button></router-link>
-        <router-link to="/home" custom v-slot="{navigate}"><button @click="navigate" class="button" role="link">Delete</button></router-link>
+        <router-link to="/" custom v-slot="{navigate}"><button @click="navigate" class="button" role="link">Update</button></router-link>
+        <router-link to="/" custom v-slot="{navigate}"><button @click="navigate" class="button" role="link">Delete</button></router-link>
       
       </div>
     </div>

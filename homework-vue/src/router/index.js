@@ -8,13 +8,28 @@ import ContactView from "@/views/ContactView.vue";
 
 const routes = [{
         path: '/',
-        name: 'contact',
-        component: ContactView
+        name: 'home',
+        component: HomeView,
+        beforeEnter: async (to, from, next) => {
+            let authResult = await fetch("http://localhost:3000/auth/authenticate", {
+                credentials: 'include'
+            }) // Don't forget to specify this if you need cookies
+                .then((response) => response.json())
+                .catch((e) => {
+                    console.log(e);
+                });
+
+            if (!authResult.authenticated) {
+                next('/login')
+            } else {
+                next()
+            }
+        }
     },
     {
-        path: '/home',
-        name: 'home',
-        component: HomeView
+        path: '/contact',
+        name: 'contact',
+        component: ContactView
     },
     {
         path: '/addPost',

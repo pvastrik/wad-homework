@@ -1,9 +1,11 @@
 import {createStore} from 'vuex'
-
+import createPersistedState from "vuex-persistedstate"
 export default createStore({
     strict: true,
 
     state: {
+        userid: 0,
+
         postList: [
             {
                 id: 1,
@@ -120,7 +122,9 @@ export default createStore({
         ]
     },
     getters: {
-        
+        getUserId: (state) => {
+            return state.userid;
+        }
     },
     mutations: {
         increaseLikes: (state, id) => {
@@ -138,6 +142,9 @@ export default createStore({
                 }
             })
         },
+        setUserId: (state, id) => {
+            state.userid += id
+        }
     },
     actions: {
         increaseLikesAction: (action, id) => {
@@ -147,6 +154,13 @@ export default createStore({
         decreaseLikesAction: (action, id) => {
             action.commit("decreaseLikes", id)
         },
-
-    }
+        setUserAction: (action, id) => {
+            action.commit("setUserId", id)
+        }
+    },
+    plugins: [
+        createPersistedState({
+            storage: window.sessionStorage,
+        })
+    ]
 })

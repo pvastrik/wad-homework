@@ -26,7 +26,6 @@
 
 <script>
 //import { required, minLength, maxLength} from 'vuelidate/lib/validators';
-import router from "@/router";
 
 export default {
 
@@ -53,7 +52,8 @@ export default {
               console.log(data);
               // eslint-disable-next-line no-prototype-builtins
               if (!data.hasOwnProperty("error")) {
-                router.push("home")
+                this.$store.dispatch("setUserAction", data.user_id)
+                location.assign("/");
               } else {
                 this.validationError = data.error
               }
