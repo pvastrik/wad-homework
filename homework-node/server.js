@@ -9,7 +9,7 @@ const jwt = require('jsonwebtoken');
 const app = express();
 
 
-app.use(cors({ origin: 'http://localhost:8080', credentials: true }));
+app.use(cors({ origin: 'http://localhost:8081', credentials: true }));
 app.use(express.json());
 
 app.use(cookieParser());
@@ -153,7 +153,7 @@ app.post('/auth/signup', async(req, res) => {
             .send;
     } catch (err) {
         console.error(err.message);
-        res.status(400).send(err.message);
+        res.status(400).json({ error: "Email is already in use." });;
     }
 });
 

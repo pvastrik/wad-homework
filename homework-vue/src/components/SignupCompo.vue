@@ -71,6 +71,7 @@ export default {
               router.push("home");
             })
             .catch((e) => {
+              this.validationError = "Email is already in use.";
               console.log(e);
               console.log("error");
             })
