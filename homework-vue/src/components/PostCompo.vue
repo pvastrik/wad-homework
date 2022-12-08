@@ -3,12 +3,12 @@
     
     <div class="post">
         <div class="post-header">
-            <img v-bind:src="require('@/assets/' + profilePic)" alt="Profile picture"/>
+            <img :src="require('@/assets/' + profilePic)" alt="Profile picture"/>
             <span>{{date}}</span>
         </div>
         <div class="post-body">
             <div v-if="bodyImage!=''"> 
-              <img v-bind:src="require('@/assets/'+bodyImage)" alt={{postImageAlt}}>
+              <img :src="require('@/assets/'+bodyImage)" alt={{postImageAlt}}>
             </div>
             <pre>{{body}}</pre>
         </div>

@@ -50,7 +50,27 @@ export default {
       this.v$.$validate();
       console.log(this.v$)
       if (!this.v$.$error) {
-        router.push("home")
+        var data = {
+          email: this.v$.email,
+          password: this.v$.password.password
+        }
+        fetch("http://localhost:3000/auth/signup", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          credentials: 'include',
+          body: JSON.stringify(data)
+        })
+            .then((response) => response.json())
+            .then((data) => {
+              console.log(data);
+              router.push("home");
+            })
+            .catch((e) => {
+              console.log(e);
+              console.log("error");
+            })
       } else {
         this.validationError = "";
         for (let error of  this.v$.$errors) {

@@ -19,7 +19,7 @@
           <a href="#">Edit profile</a>
         </li>
         <li>
-          <a href="/">Log out</a>
+          <a href="/homework-vue/public">Log out</a>
         </li>
       </ul>
     </div>
