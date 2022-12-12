@@ -39,7 +39,7 @@
         body: this.post.body,
         id: this.id,
       }
-      fetch(`http://localhost:3000//api/posts/${this.post.id}`, {
+      fetch(`http://localhost:3000/api/posts/${this.post.id}`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json"
@@ -61,7 +61,7 @@
       const data = {
         id: this.id,
       }
-      fetch(`http://localhost:3000//api/posts/${this.post.id}`, {
+      fetch(`http://localhost:3000/api/posts/${this.post.id}`, {
         method: "DELETE",
         headers: {
           "Content-Type": "application/json"

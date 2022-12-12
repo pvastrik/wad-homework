@@ -48,10 +48,10 @@ app.post('/api/posts', async(req, res) => {
 });
 //postituste saamine
 
-//kustuta postitused
+//kustuta postitus
 app.delete('/api/posts/:id', async(req, res) => {
     try {
-        console.log("delete request to delete users posts");
+        console.log("delete request to delete post");
         const { id } = req.params;
         const deletePosts = await pool.query(
             "DELETE FROM posts WHERE id = $1", [id]
@@ -71,7 +71,7 @@ app.put('/api/posts/:id', async(req, res) => {
         const { id } = req.params;
         const post = req.body;
         const updatePosts = await pool.query(
-            "UPDATE posts SET body = $2 WHERE id = $1", [id, post.body]
+            "UPDATE posts SET (body, date) = ($2, CURRENT_TIMESTAMP) WHERE id = $1", [id, post.body]
         );
         res.json(updatePosts);
 

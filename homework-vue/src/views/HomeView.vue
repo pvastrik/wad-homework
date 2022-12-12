@@ -34,7 +34,7 @@
             >  
         </post-compo>
         <router-link to="/addPost" custom v-slot="{navigate}"><button @click="navigate" role="link">Add post</button></router-link>
-        <button type="button" @click="fetchPosts">Delete all</button>
+        <button type="button">Delete all</button>
       </div>
 
       <div class="right">
@@ -84,10 +84,12 @@ export default {
       fetch(`http://localhost:3000/api/posts/`)
           .then((response) => response.json())
           .then((data) => {
-            for (let i = 0; i< data.length;i++) {
-              let dateformat = data[i].date.substring(0,10)
-              data[i].date = dateformat
-            }
+            console.log(data)
+            data.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+            // for (let i = 0; i< data.length;i++) {
+            //   let dateformat = data[i].date.substring(0,10)
+            //   data[i].date = dateformat
+            // }
             this.posts = data
             console.log(data)
           })
