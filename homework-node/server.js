@@ -9,7 +9,7 @@ const jwt = require('jsonwebtoken');
 const app = express();
 
 
-app.use(cors({ origin: 'http://localhost:8081', credentials: true }));
+app.use(cors({ origin: 'http://localhost:8080', credentials: true }));
 app.use(express.json());
 
 app.use(cookieParser());
@@ -103,7 +103,7 @@ app.get('/api/posts/:id', async(req, res) => {
         const { id } = req.params;
 
         const posts = await pool.query(
-            "SELECT * FROM posttable WHERE id = $1", [id]
+            "SELECT * FROM posts WHERE id = $1", [id]
         );
         res.json(posts.rows[0]);
     } catch (err) {

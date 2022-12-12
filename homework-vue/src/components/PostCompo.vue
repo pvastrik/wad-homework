@@ -1,8 +1,8 @@
 <template>
-    <router-link to="post/">
+    <router-link :to="'post/'+id">
       <div class="post">
           <div class="post-header">
-              <p>{{username}}</p>
+              <p>{{name}}</p>
               <span>{{date}}</span>
           </div>
           <div class="post-body">
@@ -20,7 +20,7 @@
 
 <script>
 export default {
-  props: ['id', 'username', 'date', 'body'],
+  props: ['id', 'name', 'date', 'body'],
   methods: {
     increaseLikes: function (id) {
       this.$store.dispatch("increaseLikesAction", id)
