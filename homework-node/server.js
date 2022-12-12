@@ -9,7 +9,7 @@ const jwt = require('jsonwebtoken');
 const app = express();
 
 
-app.use(cors({ origin: 'http://localhost:8080', credentials: true }));
+app.use(cors({ origin: 'http://localhost:8081', credentials: true }));
 app.use(express.json());
 
 app.use(cookieParser());
@@ -62,7 +62,7 @@ app.delete('/api/posts', async(req, res) => {
     } catch (err) {
         console.log(err.message);
     }
-})
+});
 
 
 //muuda postitus
@@ -79,7 +79,7 @@ app.update('/api/posts', async(req, res) => {
     } catch (err) {
         console.log(err.message);
     }
-})
+});
 
 //4
 //saa postitused
@@ -95,7 +95,7 @@ app.get('/api/posts/', async (req, res) => {
     } catch (err) {
         console.log(err.message);
     }
-})
+});
 //saa kindel postitus
 
 app.get('/api/posts/:id', async(req, res) => {
