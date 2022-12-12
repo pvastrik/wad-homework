@@ -1,6 +1,5 @@
 <template>
 
-    
     <div class="post">
         <div class="post-header">
             <p>{{username}}</p>

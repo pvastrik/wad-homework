@@ -25,7 +25,6 @@
       </div>
       <div class="center">
         <button @click="logOut" role="link">Log out</button>
-
         <post-compo v-for="post in posts"
             :key="post.id"
             :id="post.id"
@@ -34,7 +33,7 @@
             :user="post.username"
             >
         </post-compo>
-        <router-link to="/postUpdate" custom v-slot="{navigate}"><button @click="navigate" role="link">Update post</button></router-link>
+<!--        <router-link to="/postUpdate" custom v-slot="{navigate}"><button @click="navigate" role="link">Update post</button></router-link>-->
         <router-link to="/addPost" custom v-slot="{navigate}"><button @click="navigate" role="link">Add post</button></router-link>
         <button type="button" @click="fetchPosts">Delete all</button>
       </div>
