@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="3b9944a8-d2d8-48f9-9021-76901a0a681d" name="Changes" comment="new pages and buttons linked">
+      <change beforePath="$PROJECT_DIR$/homework-node/database.js" beforeDir="false" afterPath="$PROJECT_DIR$/homework-node/database.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/homework-node/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/homework-node/server.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/homework-vue/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/homework-vue/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/homework-vue/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/homework-vue/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/homework-vue/src/views/HomeView.vue" beforeDir="false" afterPath="$PROJECT_DIR$/homework-vue/src/views/HomeView.vue" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Vue Single File Component" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2HwhtqOQ9SxiGeQ7RBSzZ0Yt9au" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/urmitari/WAD/HW1/WAD-homework1&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\urmitari\WAD\HW3\wad-homework\src\components" />
+    </key>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="3b9944a8-d2d8-48f9-9021-76901a0a681d" name="Changes" comment="" />
+      <created>1669202270753</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1669202270753</updated>
+      <workItem from="1669202272064" duration="9055000" />
+      <workItem from="1669676996864" duration="641000" />
+      <workItem from="1669898768655" duration="8628000" />
+      <workItem from="1670503140144" duration="13762000" />
+      <workItem from="1670833681174" duration="10982000" />
+    </task>
+    <task id="LOCAL−00001" summary="new pages">
+      <created>1669900478965</created>
+      <option name="number" value="LOCAL−00001" />
+      <option name="presentableId" value="LOCAL−00001" />
+      <updated>1669900478965</updated>
+    </task>
+    <task id="LOCAL−00002" summary="new pages and buttons linked">
+      <created>1669905345905</created>
+      <option name="number" value="LOCAL−00002" />
+      <option name="presentableId" value="LOCAL−00002" />
+      <updated>1669905345905</updated>
+    </task>
+    <task id="LOCAL−00003" summary="new pages and buttons linked">
+      <created>1669905484221</created>
+      <option name="number" value="LOCAL−00003" />
+      <option name="presentableId" value="LOCAL−00003" />
+      <updated>1669905484221</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="new pages" />
+    <MESSAGE value="new pages and buttons linked" />
+    <option name="LAST_COMMIT_MESSAGE" value="new pages and buttons linked" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/src/App.vue</url>
+          <line>10</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+</project>
