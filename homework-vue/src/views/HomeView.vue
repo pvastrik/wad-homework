@@ -30,7 +30,7 @@
             :id="post.id"
             :date="post.date"
             :body="post.body"
-            :user="post.username"
+            :name="post.name"
             >  
         </post-compo>
         <router-link to="/addPost" custom v-slot="{navigate}"><button @click="navigate" role="link">Add post</button></router-link>

@@ -2,7 +2,7 @@
     <div class="container">
       <div class = "item">
         <h2 class = "textformating" for="post">Post body</h2>
-        <textarea id="post" rows="8"></textarea>
+        <textarea v-model="post.body" id="post" rows="8"></textarea>
         <br>
         <button @click="updatePost" class="button" role="link">Update</button>
         <button @click="deletePost" class="button" role="link">Delete</button>
@@ -16,25 +16,27 @@
 
     data() {
       return {
-        postBody: "",
-        id: ""
+        post: {
+          id: "",
+          date: "",
+          name: "",
+          body: ""
+        }
       }
     },
 
-
     methods: {
-
-    fetchAPost(id) {
-      // fetch one post with the specied id (id)
-      fetch(`http://localhost:3000/api/posts/${id}`)
-        .then((response) => response.json())
-        .then((data) => (this.post = data))
-        .catch((err) => console.log(err.message));
-    },
-
+      fetchAPost(id) {
+        // fetch one post with the specied id (id)
+        fetch(`http://localhost:3000/api/posts/${id}`)
+            .then((response) => response.json())
+            .then((data) => (this.post = data))
+            .catch((err) => console.log(err.message));
+      },
+      
     updatePost() {
       const data = {
-        body: this.postBody,
+        body: this.post.body,
         id: this.id,
       }
       fetch(`http://localhost:3000//api/posts/${this.post.id}`, {
