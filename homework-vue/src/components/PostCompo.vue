@@ -1,19 +1,20 @@
 <template>
-
-    <div class="post">
-        <div class="post-header">
-            <p>{{username}}</p>
-            <span>{{date}}</span>
-        </div>
-        <div class="post-body">
-            <pre>{{body}}</pre>
-        </div>
-        <div class="post-footer">
-            <img class="likebutton" @click="increaseLikes(id)" src="@/assets/likebutton.png">
-            <img class="likebutton" @click="decreaseLikes(id)" src="@/assets/dislikebutton.png">
-<!--            <p>Likes: {{ likes }} Dislikes: {{ dislikes }}</p>-->
-        </div>
-    </div>
+    <router-link to="post/">
+      <div class="post">
+          <div class="post-header">
+              <p>{{username}}</p>
+              <span>{{date}}</span>
+          </div>
+          <div class="post-body">
+              <pre>{{body}}</pre>
+          </div>
+          <div class="post-footer">
+              <img class="likebutton" @click="increaseLikes(id)" src="@/assets/likebutton.png">
+              <img class="likebutton" @click="decreaseLikes(id)" src="@/assets/dislikebutton.png">
+  <!--            <p>Likes: {{ likes }} Dislikes: {{ dislikes }}</p>-->
+          </div>
+      </div>
+    </router-link>
 </template>
 
 

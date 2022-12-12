@@ -109,35 +109,7 @@ export default {
     }
   }
 }
-//   validations: {
-//       user: {
-//         password: {
-//           required: required,
-//           valid: function (value) {
-//             const contains2Upper = /[A-Z].*[A-Z]/.test(value);
-//             const containsLower =  /[a-z]/.test(value);
-//             const containsNumber = /[0-9]/.test(value);
-//             const containsSpecial = /[_]/.test(value);
-//             const startsWithUpper = /[A-Z]/.test(value.substring(0, 1));
-//             return (containsSpecial && startsWithUpper && contains2Upper
-//                 && containsNumber && containsLower);
-//           },
-//           minLength: minLength(8),
-//           maxLength: maxLength(15),
-//         }
-//       }
-//     },
-//   computed: {
-//     isDisabled() {
-//       return this.$v.$invalid;
-//     }
-//   },
-//   created() {
-//     this.submitted = true;
-//     return this.$v.$touch();
-//   }
-//
-// }
+
 </script>
 
 

@@ -143,7 +143,7 @@ export default createStore({
             })
         },
         setUserId: (state, id) => {
-            state.userid += id
+            state.userid = id
         }
     },
     actions: {
