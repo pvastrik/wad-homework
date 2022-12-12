@@ -21,6 +21,9 @@
       }
     },
 
+
+    methods: {
+
     fetchAPost(id) {
       // fetch one post with the specied id (id)
       fetch(`http://localhost:3000/api/posts/${id}`)
@@ -29,7 +32,6 @@
         .catch((err) => console.log(err.message));
     },
 
-    methods: {
     updatePost() {
       const data = {
         body: this.postBody,

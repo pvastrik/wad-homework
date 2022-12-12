@@ -1,5 +1,5 @@
 <template>
-    <router-link to="post/">
+    <router-link :to="'post/' + id">
       <div class="post">
           <div class="post-header">
               <p>{{username}}</p>
