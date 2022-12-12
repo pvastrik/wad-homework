@@ -68,11 +68,15 @@ async function authPost(to, from, next) {
     if (!authResult.authenticated) {
         next('/login')
     } else {
-        const { postId }  = to.params;
+        console.log(to)
+        const postId  = to.params.id;
+
         const data = {
             id: postId,
             userid: store.getters['getUserId']
         }
+
+        console.log(data)
         let postResult = await fetch("http://localhost:3000/auth/posts", {
             method: "POST",
             headers: {
@@ -84,6 +88,7 @@ async function authPost(to, from, next) {
             .then((res) => res.json())
             .catch((e) => (console.log(e.message)));
 
+        console.log(postResult)
         if (postResult.canUpdate) {
             next()
         } else {

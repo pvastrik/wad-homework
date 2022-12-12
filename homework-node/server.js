@@ -165,9 +165,9 @@ app.post('/auth/posts/', async(req, res) => {
         console.log("a request to get post author has arrived")
         const { id, userid } = req.body;
         const postauthor = await pool.query(
-            "SELECT userid FROM posts JOIN users ON users.id = posts.userid WHERE post.id = $1", [id]
+            "SELECT userid FROM posts JOIN users ON users.id = posts.userid WHERE posts.id = $1", [id]
         );
-        const auth = userid===postauthor;
+        const auth = userid==postauthor.rows[0].userid;
         res.send({"canUpdate": auth});
     } catch (e) {
         console.log(e.message)
