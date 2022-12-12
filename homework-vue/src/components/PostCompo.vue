@@ -1,5 +1,5 @@
 <template>
-    <router-link :to="checkUserId() ? 'post/' + id : '/'">
+    <router-link :class="!checkUserId() ? 'disabled' : 'enabled'" :to="'post/' + id">
       <div class="post">
           <div class="post-header">
               <p class="user">{{name}}</p>
@@ -19,8 +19,7 @@ export default {
 
   methods: {
     checkUserId() {
-      console.log(this.$store.getters['getUserId'])
-      console.log(this.userid)
+
       if (this.$store.getters['getUserId'] == this.userid) {
         return true;
       }
@@ -64,6 +63,9 @@ export default {
 
 .likebutton:hover {
   cursor: pointer;
+}
+.disabled {
+  pointer-events: none;
 }
 
 .user {
