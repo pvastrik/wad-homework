@@ -8,11 +8,6 @@
           <div class="post-body">
               <pre>{{body}}</pre>
           </div>
-          <div class="post-footer">
-              <img class="likebutton" @click="increaseLikes(id)" src="@/assets/likebutton.png">
-              <img class="likebutton" @click="decreaseLikes(id)" src="@/assets/dislikebutton.png">
-  <!--            <p>Likes: {{ likes }} Dislikes: {{ dislikes }}</p>-->
-          </div>
       </div>
     </router-link>
 </template>
@@ -21,16 +16,6 @@
 <script>
 export default {
   props: ['id', 'name', 'date', 'body'],
-  methods: {
-    increaseLikes: function (id) {
-      this.$store.dispatch("increaseLikesAction", id)
-      
-    },
-    decreaseLikes: function (id) {
-      this.$store.dispatch("decreaseLikesAction", id)
-    }
-  }
-
 }
 </script>
 
@@ -49,9 +34,6 @@ export default {
 }
 .post-body img {
   width: 100%;
-}
-.post-footer img {
-  width: 3em;
 }
 
 .post-header {
