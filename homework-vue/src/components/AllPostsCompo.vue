@@ -11,8 +11,7 @@
     >
     </post-compo>
     <router-link to="/addPost" custom v-slot="{navigate}"><button @click="navigate" role="link">Add post</button></router-link>
-    <button type="button">Delete all</button>
-  </div>
+    <button @click="deletePost" class="button" role="link">Delete post</button>  </div>
 </template>
 
 <script>
@@ -55,6 +54,26 @@ import PostCompo from "@/components/PostCompo";
             })
             .catch((err) => console.log(err.message));
       },
+      deletePost() {
+        const data = {
+          userid: this.$store.getters['getUserId']
+        }
+        fetch(`http://localhost:3000/api/posts/`, {
+          method: "DELETE",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          credentials: "include",
+          body: JSON.stringify(data)
+        })
+            .then((response) => {
+              console.log(response.data);
+              location.assign("/");
+            })
+            .catch((e) => {
+              console.log(e);
+            });
+      }
     },
     mounted() {
       this.fetchPosts();
