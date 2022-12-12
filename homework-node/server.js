@@ -160,6 +160,20 @@ app.get('/auth/authenticate', async(req, res) => {
     }
 });
 
+app.post('/auth/posts/', async(req, res) => {
+    try {
+        console.log("a request to get post author has arrived")
+        const { id, userid } = req.body;
+        const postauthor = await pool.query(
+            "SELECT userid FROM posts JOIN users ON users.id = posts.userid WHERE post.id = $1", [id]
+        );
+        const auth = userid===postauthor;
+        res.send({"canUpdate": auth});
+    } catch (e) {
+        console.log(e.message)
+    }
+})
+
 // signup a user
 app.post('/auth/signup', async(req, res) => {
     try {

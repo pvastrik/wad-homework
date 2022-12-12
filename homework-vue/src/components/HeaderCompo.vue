@@ -59,47 +59,6 @@ h1 {
   border-radius: 50%;
 }
 
-.menu {
-  display: none;
-}
-
-.menu.active {
-  display: flex;
-  flex-direction: column;;
-  width: max-content;
-  position: absolute;
-  top: 8em;
-  right: 1em;
-  background: pink;
-  border-radius: 1em;
-}
-
-.menu::before {
-  content: "";
-  position: absolute;
-  top: -5px;
-  right: 28px;
-  width: 20px;
-  height: 20px;
-  transform: rotate(45deg);
-  background: pink;
-}
-
-.menu h3 {
-  width: 100%;
-  text-align: center;
-  line-height: 1.5em;
-  font-size: 1.25em;
-}
-
-.menu h3 span {
-  font-size: 1em;
-}
-
-.menu.active li {
-  width: 100%;
-  padding:0.75em 0 0.75em 0;
-}
 
 a {
   text-decoration: none;
