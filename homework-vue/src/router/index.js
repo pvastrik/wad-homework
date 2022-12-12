@@ -10,41 +10,30 @@ const routes = [{
         path: '/',
         name: 'home',
         component: HomeView,
-        beforeEnter: async (to, from, next) => {
-            let authResult = await fetch("http://localhost:3000/auth/authenticate", {
-                credentials: 'include'
-            }) // Don't forget to specify this if you need cookies
-                .then((response) => response.json())
-                .catch((e) => {
-                    console.log(e);
-                });
-
-            if (!authResult.authenticated) {
-                next('/login')
-            } else {
-                next()
-            }
-        }
+        beforeEnter: async (to, from, next) => auth(to, from, next)
     },
     {
         path: '/post/:id',
         name: 'post',
         component: PostUpdateView,
+        beforeEnter: async (to, from, next) => auth(to, from, next)
+
     },
     {
         path: '/contact',
         name: 'contact',
-        component: ContactView
+        component: ContactView,
     },
     {
         path: '/addPost',
         name: 'addPost',
-        component: AddPostView
+        component: AddPostView,
+        beforeEnter: async (to, from, next) => auth(to, from, next)
     },
     {
         path: '/signup',
         name: 'signup',
-        component: SignupView
+        component: SignupView,
     },
     {
         path: '/login',
@@ -52,6 +41,21 @@ const routes = [{
         component: LoginView
     }
 ]
+
+async function auth(to, from, next) {
+        let authResult =  await fetch("http://localhost:3000/auth/authenticate", {
+            credentials: 'include'
+        }) // Don't forget to specify this if you need cookies
+            .then((response) => response.json())
+            .catch((e) => {
+                console.log(e);
+            });
+    if (!authResult.authenticated) {
+        next('/login')
+    } else {
+        next()
+    }
+    }
 const router = createRouter({
     history: createWebHashHistory(),
     routes
