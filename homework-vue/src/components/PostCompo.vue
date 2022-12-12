@@ -2,8 +2,8 @@
     <router-link :to="'post/' + id">
       <div class="post">
           <div class="post-header">
-              <p>{{name}}</p>
-              <span>{{date}}</span>
+              <p class="user">{{name}}</p>
+              <p class="">Date: {{date}}</p>
           </div>
           <div class="post-body">
               <pre>{{body}}</pre>
@@ -26,14 +26,16 @@ export default {
   padding: 1em 2em 1em 2em;
   border-radius: 10px;
   margin: 2em auto 1em;
+  width: 500px;
 }
 .post pre{
   white-space: pre-wrap;
   word-wrap: break-word;
   font-family: inherit;
 }
-.post-body img {
-  width: 100%;
+.post-body {
+  font-family: "Courier New";
+  font-size: x-large;
 }
 
 .post-header {
@@ -49,5 +51,9 @@ export default {
 
 .likebutton:hover {
   cursor: pointer;
+}
+
+.user {
+  font-weight: bold;
 }
 </style>

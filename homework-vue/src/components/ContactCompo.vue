@@ -32,7 +32,7 @@ button {
   align-items: center;
   background-color: #ffd2fc;
   border-radius: 20px;
-  font-size: 3em;
+  font-size: 2em;
   border-color: #ffd2fc;
 }
 
