@@ -86,10 +86,10 @@ export default {
           .then((data) => {
             console.log(data)
             data.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
-            // for (let i = 0; i< data.length;i++) {
-            //   let dateformat = data[i].date.substring(0,10)
-            //   data[i].date = dateformat
-            // }
+            for (let i = 0; i< data.length;i++) {
+               let dateformat = data[i].date.substring(0,10)
+               data[i].date = dateformat
+             }
             this.posts = data
             console.log(data)
           })
