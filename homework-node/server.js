@@ -104,7 +104,7 @@ app.get('/api/posts/', async (req, res) => {
     try {
         console.log("get posts request has arrived");
         const posts = await pool.query(
-            "SELECT posts.id, users.name, posts.body, posts.date FROM posts JOIN users ON users.id = posts.userid"
+            "SELECT posts.id, users.name, posts.body, posts.date, posts.userid FROM posts JOIN users ON users.id = posts.userid"
         );
         res.json(posts.rows);
 

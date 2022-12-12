@@ -10,29 +10,12 @@
         </li>
       </ul>
     </div>
-    <a v-on:click="menutoggle()"><img id="logo" src="@/assets/profile.png" alt="Profile picture"></a>
-    <div class="menu">
-      <h3>User Name<br/>
-        <span>user@email.com</span></h3>
-      <ul>
-        <li>
-          <a href="#">Edit profile</a>
-        </li>
-        <li>
-          <a @click="logOut">Log out</a>
-        </li>
-      </ul>
-    </div>
+    <img id="logo" src="@/assets/profile.png" alt="Profile picture">
   </nav>
 </template>
 <script>
 export default {
 
-  methods: {
-    menutoggle: function () {
-      document.querySelector('.menu').classList.toggle('active');
-    }
-  }
 }
 </script>
 <style>
@@ -76,9 +59,6 @@ h1 {
   border-radius: 50%;
 }
 
-#logo:hover {
-  cursor: pointer;
-}
 .menu {
   display: none;
 }

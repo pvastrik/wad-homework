@@ -1,5 +1,5 @@
 <template>
-    <router-link :to="'post/' + id">
+    <router-link :to="checkUserId() ? 'post/' + id : '/'">
       <div class="post">
           <div class="post-header">
               <p class="user">{{name}}</p>
@@ -15,7 +15,20 @@
 
 <script>
 export default {
-  props: ['id', 'name', 'date', 'body'],
+  props: ['id', 'name', 'date', 'body', 'userid'],
+
+  methods: {
+    checkUserId() {
+      console.log(this.$store.getters['getUserId'])
+      console.log(this.userid)
+      if (this.$store.getters['getUserId'] == this.userid) {
+        return true;
+      }
+      else {
+        return false;
+      }
+    }
+  }
 }
 </script>
 
