@@ -34,7 +34,7 @@
             >  
         </post-compo>
         <router-link to="/addPost" custom v-slot="{navigate}"><button @click="navigate" role="link">Add post</button></router-link>
-        <button type="button">Delete all</button>
+        <button @click="deletePost" class="button" role="link">Delete post</button>
       </div>
 
       <div class="right">
@@ -61,7 +61,7 @@ export default {
   },
   data() {
     return {
-      posts: []
+      posts: [],
     }
   },
 
@@ -86,17 +86,35 @@ export default {
           .then((data) => {
             console.log(data)
             data.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
-            // for (let i = 0; i< data.length;i++) {
-            //   let dateformat = data[i].date.substring(0,10)
-            //   data[i].date = dateformat
-            // }
+            for (let i = 0; i< data.length;i++) {
+            let dateformat = data[i].date.substring(0,10)
+            data[i].date = dateformat
+            }
             this.posts = data
             console.log(data)
           })
           .catch((err) => console.log(err.message));
     },
-    resetLikesDislikes: function () {
-      return this.$store.dispatch("resetLikesDislikesAction")
+    deletePost() {
+      const data = {
+        userid: this.$store.getters['getUserId']
+      }
+      fetch(`http://localhost:3000/api/posts/`, {
+        method: "DELETE",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        credentials: "include",
+        body: JSON.stringify(data)
+
+      })
+          .then((response) => {
+            console.log(response.data);
+            location.assign("/");
+          })
+          .catch((e) => {
+            console.log(e);
+          });
     }
   },
   mounted() {
