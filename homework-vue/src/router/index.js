@@ -27,6 +27,11 @@ const routes = [{
         }
     },
     {
+        path: '/post/:id',
+        name: 'post',
+        component: PostUpdateView,
+    },
+    {
         path: '/contact',
         name: 'contact',
         component: ContactView
@@ -36,12 +41,6 @@ const routes = [{
         name: 'addPost',
         component: AddPostView
     },
-    {
-        path: '/postUpdate',
-        name: 'postUpdate',
-        component: PostUpdateView
-    },
-
     {
         path: '/signup',
         name: 'signup',

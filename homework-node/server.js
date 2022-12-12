@@ -49,13 +49,12 @@ app.post('/api/posts', async(req, res) => {
 //postituste saamine
 
 //kustuta postitused
-app.delete('/api/posts', async(req, res) => {
+app.delete('/api/posts/:id', async(req, res) => {
     try {
         console.log("delete request to delete users posts");
-        const { userId } = req.params;
-        console.log(post);
+        const { id } = req.params;
         const deletePosts = await pool.query(
-            "DELETE FROM posts WHERE userId = $1", [userId]
+            "DELETE FROM posts WHERE id = $1", [id]
         );
         res.json(deletePosts);
 
@@ -66,13 +65,13 @@ app.delete('/api/posts', async(req, res) => {
 
 
 //muuda postitus
-app.update('/api/posts', async(req, res) => {
+app.put('/api/posts/:id', async(req, res) => {
     try {
         console.log("update request to update users posts");
-        const { userId } = req.params;
-        console.log(post);
+        const { id } = req.params;
+        const post = req.body;
         const updatePosts = await pool.query(
-            "UPDATE posts SET body = $2 WHERE id = $1", [id, body]
+            "UPDATE posts SET body = $2 WHERE id = $1", [id, post.body]
         );
         res.json(updatePosts);
 
